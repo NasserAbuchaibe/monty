@@ -22,8 +22,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -40,6 +38,8 @@ typedef struct instruction_s
 /** end Structures **/
 /** Functions **/
 int push(stack_t **top, int value); /** Pushing to stack **/
-void printall(stack_t **head); /** print the stack full **/
+void pall(stack_t **head); /** print the stack full **/
+stack_t *pint(stack_t **head); /** get the top address of the stack **/
+int n_nodes(stack_t *head); /** get number of nodes in list **/
 /** end Functions **/
 #endif
