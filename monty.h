@@ -1,19 +1,12 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H_
+#define MONTY_H_
 
-/*GLOBAL VARIABLES AND MACROS*/
-extern int num;
-
-
-/*LIBRARIES*/
+/** Libraries **/
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <string.h>
-#include <ctype.h>
-
+#include <time.h>
+/** end Libraries **/
+/** Structures **/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -25,9 +18,9 @@ extern int num;
  */
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
 
 
@@ -41,8 +34,12 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
-#endif /* _MONTY_H_ */
+/** end Structures **/
+/** Functions **/
+int push(stack_t **top, int value); /** Pushing to stack **/
+void printall(stack_t **head); /** print the stack full **/
+/** end Functions **/
+#endif
