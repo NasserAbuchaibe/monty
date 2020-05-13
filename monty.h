@@ -13,7 +13,7 @@
 
 #define MAX_BUFF 100000
 
-extern int num;
+static int num;
 /** end Libraries **/
 /** Structures **/
 /**

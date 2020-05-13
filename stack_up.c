@@ -79,7 +79,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		{
 			printf("L%u: usage: push integer\n", line);
 			ll_free(my_stack);
-			free(my_stack);
+			//free(my_stack);
 			exit(EXIT_FAILURE);
 		}
 		if (token[0] != '-')
