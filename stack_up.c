@@ -17,7 +17,7 @@ void stack_up(char *file_m)
 	if (my_stack == NULL)
 	{
 		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 	}
 
 	token = strtok(str, "\n");
@@ -27,8 +27,8 @@ void stack_up(char *file_m)
 		clean_sp(my_stack, line, token);
 		token = strtok(NULL, "\n");
 	}
-	ll_free(stack);
-	free(stack);
+	ll_free(my_stack);
+	free(my_stack);
 }
 
 /**
@@ -38,7 +38,7 @@ void stack_up(char *file_m)
  */
 char *r_file(char *file)
 {
-	char buff[MAX_BUFF + 1], aux_buff;
+	char buff[MAX_BUFF + 1], *aux_buff;
 	FILE *to_file;
 	size_t size;
 
@@ -77,9 +77,9 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 			token++;
 		if (isdigit(*token) == 0)
 		{
-			printf("L%u: usage: push integer\n", lines);
-			ll_free(stack);
-			free(stack);
+			printf("L%u: usage: push integer\n", line);
+			ll_free(my_stack);
+			free(my_stack);
 			exit(EXIT_FAILURE);
 		}
 		if (token[0] != '-')
@@ -96,9 +96,9 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	{
 		p_error = strndup(token, 4);
 		printf("L%u: unknown instruction %s\n", line, p_error);
-		ll_free(stack);
-		free(stack);
-		free(error);
+		ll_free(my_stack);
+		free(my_stack);
+		free(p_error);
 		exit(EXIT_FAILURE);
 	}
 }
