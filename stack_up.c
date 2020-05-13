@@ -94,8 +94,8 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		func(my_stack, line);
 	else
 	{
-		error = strndup(token, 5);
-		printf("L%u: unknown instruction %s\n", lines, error);
+		p_error = strndup(token, 4);
+		printf("L%u: unknown instruction %s\n", line, p_error);
 		ll_free(stack);
 		free(stack);
 		free(error);
