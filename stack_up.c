@@ -1,8 +1,8 @@
 #include "monty.h"
 int num;
 /**
- * stack_up - pending
- * @file_m: file
+ * stack_up - Tokenize instructions and data
+ * @file_m: File with instructions
  * Return: void
  */
 void stack_up(char *file_m)
@@ -32,7 +32,7 @@ void stack_up(char *file_m)
 }
 
 /**
- * r_file - pending
+ * r_file - open and buffer the command line
  * @file: file to read
  * Return: pointer to the buffer
  */
@@ -64,6 +64,13 @@ char *r_file(char *file)
 	return (aux_buff);
 }
 
+/**
+ * clean_sp - get commands and data and send them the corresponding function
+ * @my_stack: stack linked list
+ * @token: instruction line
+ * @line: line number to run
+ * Return: void
+ */
 void clean_sp(stack_t **my_stack, int line, char *token)
 {
 	char *p_error;
@@ -75,7 +82,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	{
 		while (isalpha(*token))
 			token++;
-		
+
 		token++;
 		if (isdigit(*token) == 0)
 		{
@@ -105,11 +112,13 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		free(p_error);
 		exit(EXIT_FAILURE);
 	}
-	
-	
 }
 
-
+/**
+ * search_func- find the correct cfind the correct command according to the instructionn
+ * @command: command identifier to search the struct
+ * Return: function corresponding to that opcode
+ */
 void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 {
 	int x = 0;
