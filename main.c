@@ -1,23 +1,12 @@
 #include "monty.h"
 
-int main()
+int main(int argc, char **argv)
 {
-	stack_t *stack = malloc(sizeof(stack_t));
-
-	push(&stack, 1);
-	push(&stack, 2);
-	push(&stack, 3);
-	push(&stack, 6);
-	pall(&stack);
-	puts("==================");
-	pop(&stack, 0);
-	pop(&stack, 0);
-	pop(&stack, 0);
-	pop(&stack, 0);
-	push(&stack, 200);
-	push(&stack, 201);
-	pall(&stack);
-
-
-	return (EXIT_SUCCESS);
+	if (argc != 2)
+	{
+		printf("USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	stack_up(argv[1];
+	return (0);
 }
