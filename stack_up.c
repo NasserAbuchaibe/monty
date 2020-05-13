@@ -1,5 +1,5 @@
 #include "monty.h"
-
+int num;
 /**
  * stack_up - pending
  * @file_m: file
@@ -92,7 +92,17 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	}
 
 	func = search_func(token);
-	func(my_stack, line);
+	if (func != NULL)
+	{
+		func(my_stack, line);
+	}
+	else
+	{
+		ll_free(my_stack);
+		free(my_stack);
+		puts("Mensaje de error");
+	}
+	
 	
 }
 
@@ -107,6 +117,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	while (cmd[x].opcode != NULL)
