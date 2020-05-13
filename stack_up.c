@@ -1,5 +1,4 @@
 #include "monty.h"
-#define MAX_BUFF 10000
 
 /**
  * stack_up - pending
@@ -26,7 +25,7 @@ void stack_up(char *file_m)
 	for (line = 1; token != NULL; ++line)
 	{
 		clean_sp(my_stack, line, token);
-		token(NULL, "\n");
+		token = strtok(NULL, "\n");
 	}
 	ll_free(stack);
 	free(stack);
@@ -67,5 +66,71 @@ char *r_file(char *file)
 
 void clean_sp(stack_t **my_stack, int line, char *token)
 {
-	
+	char *p_error;
+	void (*func)(stack_t **stack, unsigned int l_num);
+
+	while (isspace(*token))
+		token++;
+	if (strncmp(token, "push ", 5) == 0)
+	{
+		while (isalpha(*token))
+			token++;
+		if (isdigit(*token) == 0)
+		{
+			printf("L%u: usage: push integer\n", lines);
+			ll_free(stack);
+			free(stack);
+			exit(EXIT_FAILURE);
+		}
+		if (token[0] != '-')
+			num = atoi(token);
+		else
+			num = -1 * atoi(token);
+		token = "push";
+	}
+
+	func = search_func(token);
+	if (func != NULL)
+		func(my_stack, line);
+	else
+	{
+		error = strndup(token, 5);
+		printf("L%u: unknown instruction %s\n", lines, error);
+		ll_free(stack);
+		free(stack);
+		free(error);
+		exit(EXIT_FAILURE);
+	}
+}
+
+
+void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
+{
+	int size, x = 0;
+
+	size = _len(command);
+	instruction_t cmd[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{NULL, NULL}
+	};
+	while (cmd[x] != NULL)
+	{
+		if (strncmp(code, cmd[x].opcode, size))
+			return (cmd[x].f);
+		x++;
+	}
+	return (NULL);
+}
+
+int _len(char *command)
+{
+	int cont;
+
+	for (cont = 0; isalpha(command[cont]) != 0; cont++)
+	{
+	}
+	return (cont);
 }
