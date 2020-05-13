@@ -75,6 +75,8 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	{
 		while (isalpha(*token))
 			token++;
+		
+		token++;
 		if (isdigit(*token) == 0)
 		{
 			printf("L%u: usage: push integer\n", line);
@@ -90,17 +92,8 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	}
 
 	func = search_func(token);
-	if (func != NULL)
-		func(my_stack, line);
-	else
-	{
-		p_error = strndup(token, 4);
-		printf("L%u: unknown instruction %s\n", line, p_error);
-		ll_free(my_stack);
-		free(my_stack);
-		free(p_error);
-		exit(EXIT_FAILURE);
-	}
+	func(my_stack, line);
+	
 }
 
 
@@ -118,7 +111,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 	};
 	while (cmd[x].opcode != NULL)
 	{
-		if (strncmp(command, cmd[x].opcode, size))
+		if (strcmp(command, cmd[x].opcode) == 0)
 			return (cmd[x].f);
 		x++;
 	}
