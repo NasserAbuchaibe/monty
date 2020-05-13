@@ -116,7 +116,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"pop", pop},
 		{NULL, NULL}
 	};
-	while (cmd[x] != NULL)
+	while (cmd[x].opcode != NULL)
 	{
 		if (strncmp(command, cmd[x].opcode, size))
 			return (cmd[x].f);
