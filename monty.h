@@ -40,6 +40,7 @@ typedef struct instruction_s
 int push(stack_t **top, int value); /** Pushing to stack **/
 void pall(stack_t **head); /** print the stack full **/
 stack_t *pint(stack_t **head); /** get the top address of the stack **/
+int pop(stack_t **head, int line_n); /** pop top node in stack **/
 int n_nodes(stack_t *head); /** get number of nodes in list **/
 /** end Functions **/
 #endif
