@@ -5,6 +5,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_BUFF 100000
+
+extern int num;
 /** end Libraries **/
 /** Structures **/
 /**
@@ -37,6 +46,13 @@ typedef struct instruction_s
 } instruction_t;
 /** end Structures **/
 /** Functions **/
+void stack_up(char *file_m);
+char *r_file(char *file);
+void clean_sp(stack_t **my_stack, int line, char *token);
+void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num);
+int _len(char *command);
+void ll_free(stack_t **my_stack);
+
 int push(stack_t **top, int value); /** Pushing to stack **/
 void pall(stack_t **head); /** print the stack full **/
 void pint(stack_t **head); /** get the top address of the stack **/

@@ -6,7 +6,7 @@ void ll_free(stack_t **my_stack)
 
 	if (*my_stack == NULL)
 		return;
-	while (*stack != NULL)
+	while (*my_stack != NULL)
 	{
 		aux = *my_stack;
 		*my_stack = (*my_stack)->next;
