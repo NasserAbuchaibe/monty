@@ -1,8 +1,28 @@
 #include "monty.h"
 
 
+void swap(stack_t **head, int line_num)
+{
+	stack_t *aux = *head;
+	int tmp;
 
-int pop(stack_t **head, int line_num)
+	if (n_nodes(aux) < 2)
+	{
+		printf("<%d>: can't swap, stack too short\n", line_num);
+		return;
+	}
+
+	while (aux->next != NULL)
+	{
+		aux = aux->next;
+	}
+	tmp = aux->n;
+	aux->n = aux->prev->n;
+	aux->prev->n = tmp;
+}
+
+
+void pop(stack_t **head, int line_num)
 {
 	stack_t *aux;
 	int popped;
@@ -21,10 +41,9 @@ int pop(stack_t **head, int line_num)
 	aux->prev->next = NULL;
 	free(aux);
 
-	return (popped);
 }
 
-stack_t *pint(stack_t **head)
+void pint(stack_t **head)
 {
 	stack_t *top = *head;
 
@@ -33,7 +52,6 @@ stack_t *pint(stack_t **head)
 		top = top->next;
 	}
 	printf("%d\n", top->n);
-	return (top);
 }
 
 
