@@ -45,7 +45,7 @@ char *r_file(char *file)
 	to_file = fopen(file, "r");
 	if (to_file == NULL)
 	{
-		printf("Error: Can't open file %s\n", file);
+		fprintf(stderr, "Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -53,7 +53,7 @@ char *r_file(char *file)
 		size = fread(buff, sizeof(char), MAX_BUFF, to_file);
 		if (ferror(to_file))
 		{
-			printf("Error: Can't open file %s\n", file);
+			fprintf(stderr, "Error: Can't open file %s\n", file);
 			exit(EXIT_FAILURE);
 		}
 		else
@@ -79,9 +79,9 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		token++;
 		if (isdigit(*token) == 0)
 		{
-			printf("L%u: usage: push integer\n", line);
+			fprintf(stderr,stderr,  "L%u: usage: push integer\n", line);
 			ll_free(my_stack);
-			//free(my_stack);
+			free(my_stack);
 			exit(EXIT_FAILURE);
 		}
 		if (token[0] != '-')
@@ -98,9 +98,12 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	}
 	else
 	{
+		p_error = strndup(token, 4);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line, p_error);
 		ll_free(my_stack);
 		free(my_stack);
-		puts("Mensaje de error");
+		free(p_error);
+		exit(EXIT_FAILURE);
 	}
 	
 	
@@ -109,9 +112,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 
 void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 {
-	int size, x = 0;
-
-	size = _len(command);
+	int x = 0;
 	instruction_t cmd[] = {
 		{"push", push},
 		{"pall", pall},
