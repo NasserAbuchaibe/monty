@@ -9,7 +9,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (n_nodes(aux) < 2)
 	{
 		printf("<%d>: can't swap, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	while (aux->next != NULL)

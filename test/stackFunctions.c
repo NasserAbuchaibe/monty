@@ -1,14 +1,14 @@
 #include "monty.h"
 
 
-void swap(stack_t **stack, unsigned int line_number)
+void swap(stack_t **head, int line_num)
 {
 	stack_t *aux = *head;
 	int tmp;
 
 	if (n_nodes(aux) < 2)
 	{
-		printf("<%d>: can't swap, stack too short\n", line_number);
+		puts("Nope");
 		return;
 	}
 
@@ -22,14 +22,14 @@ void swap(stack_t **stack, unsigned int line_number)
 }
 
 
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **head, int line_n)
 {
 	stack_t *aux;
 	int popped;
 
 	if (*head == NULL)
 	{	/** Aca se debe imprimir el numero de linea que no puedo ejecutar pop **/
-		printf("<%d>: can't pop an empty stack", line_number);
+		puts("Nope");
 		exit(EXIT_FAILURE);
 	}
 	aux = *head;
@@ -43,7 +43,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 }
 
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **head)
 {
 	stack_t *top = *head;
 
@@ -55,7 +55,7 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **head)
 {
 	int c = 0;
 
@@ -72,7 +72,7 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 
-int push(stack_t **stack, unsigned int line_number)
+int push(stack_t **head, int value)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));
 	stack_t *aux = *head;

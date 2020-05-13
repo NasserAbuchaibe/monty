@@ -37,7 +37,8 @@ typedef struct instruction_s
 } instruction_t;
 /** end Structures **/
 /** Functions **/
-int push(stack_t **top, int value); /** Pushing to stack **/
+void add(stack_t **stack, unsigned int line_number);
+int push(stack_t **head, int value); /** Pushing to stack **/
 void pall(stack_t **head); /** print the stack full **/
 void pint(stack_t **head); /** get the top address of the stack **/
 void pop(stack_t **head, int line_n); /** pop top node in stack **/
