@@ -7,7 +7,7 @@
  */
 void stack_up(char *file_m)
 {
-	stack_t **my_stack;
+	stack_t *my_stack;
 	char *token, *str;
 	int line;
 
@@ -24,10 +24,10 @@ void stack_up(char *file_m)
 
 	for (line = 1; token != NULL; ++line)
 	{
-		clean_sp(my_stack, line, token);
+		clean_sp(&my_stack, line, token);
 		token = strtok(NULL, "\n");
 	}
-	ll_free(my_stack);
+	ll_free(&my_stack);
 	free(my_stack);
 }
 
@@ -116,7 +116,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"pop", pop},
 		{NULL, NULL}
 	};
-	while (cmd[x] != NULL)
+	while (cmd[x].opcode != NULL)
 	{
 		if (strncmp(command, cmd[x].opcode, size))
 			return (cmd[x].f);
