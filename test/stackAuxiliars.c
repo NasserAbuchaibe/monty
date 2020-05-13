@@ -13,7 +13,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (n_nodes(aux) < 2)
 	{
-		printf("<%d>: can't swap, stack too short\n", line_number);
+		fprintf(2,"<%d>: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 

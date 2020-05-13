@@ -59,5 +59,6 @@ void pint(stack_t **stack, unsigned int line_number); /** get the top address of
 void pop(stack_t **stack, unsigned int line_number); /** pop top node in stack **/
 int n_nodes(stack_t *head); /** get number of nodes in list **/
 void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 /** end Functions **/
 #endif
