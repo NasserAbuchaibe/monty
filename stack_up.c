@@ -14,7 +14,7 @@ void stack_up(char *file_m)
 	str = r_file(file_m);
 
 	my_stack = malloc(sizeof(char *));
-	if (my_stack  NULL)
+	if (my_stack == NULL)
 	{
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE)
@@ -118,7 +118,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 	};
 	while (cmd[x] != NULL)
 	{
-		if (strncmp(code, cmd[x].opcode, size))
+		if (strncmp(command, cmd[x].opcode, size))
 			return (cmd[x].f);
 		x++;
 	}
