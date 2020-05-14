@@ -1,5 +1,23 @@
 #include "monty.h"
 
+void sub(stack_t **head, int line_num)
+{
+	stack_t *aux = *head;
+	if (n_nodes(aux) < 2)
+	{
+		puts("Nope");
+		return;
+	}
+
+	while (aux->next != NULL)
+		aux = aux->next;
+
+	aux->prev->n -= aux->n;
+	aux->prev->next = NULL;
+
+	free(aux);
+}
+
 
 void swap(stack_t **head, int line_num)
 {
