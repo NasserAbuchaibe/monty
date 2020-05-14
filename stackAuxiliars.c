@@ -63,6 +63,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		ll_free(stack);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
 

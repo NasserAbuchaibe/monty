@@ -7,7 +7,7 @@
 
 void _mod(stack_t **stack, unsigned int line_num)
 {
-	int mod;
+	int mod = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -27,6 +27,5 @@ void _mod(stack_t **stack, unsigned int line_num)
 	mod = ((*stack)->next)->n % (*stack)->n;
 
 	(*stack)->next->n = mod;
-	pop(stack, line_num);
 }
 
