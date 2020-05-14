@@ -10,7 +10,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (n_nodes(aux) < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		ll_free(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -50,6 +50,30 @@ void sub(stack_t **head, unsigned int line_num)
 	free(aux);
 }
 
+/**
+ * mul - mul top and previous element
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *stack;
+
+	if (n_nodes(aux) < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		ll_free(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	while (aux->next != NULL)
+		aux = aux->next;
+
+	aux->prev->n *= aux->n;
+	aux->prev->next = NULL;
+
+	free(aux);
+}
 
 /**
  * nop - doesnt do anything.
