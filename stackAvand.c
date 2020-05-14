@@ -40,7 +40,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	while(aux->next != NULL)
+	while (aux->next != NULL)
 		aux = aux->next;
 
 	code = (char)aux->n;

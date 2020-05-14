@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * cleans - clean space
+ * @command: word with space
+ * Return: clean word
+ */
+
 char *cleans(char *command)
 {
 	char *aux;
@@ -8,9 +14,6 @@ char *cleans(char *command)
 	for (cont = 0; isalpha(command[cont]) != 0; cont++)
 	{
 	}
-	/*aux = malloc(sizeof(char) * cont); 
-	if (aux == NULL)
-		return (NULL);*/
 	aux = strndup(command, cont);
 	return (aux);
-} 
+}

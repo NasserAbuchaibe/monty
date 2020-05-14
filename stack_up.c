@@ -3,6 +3,7 @@ int num;
 /**
  * stack_up - Tokenize instructions and data
  * @file_m: File with instructions
+ * @my_stack: head to linked list
  * Return: void
  */
 void stack_up(char *file_m, stack_t **my_stack)
