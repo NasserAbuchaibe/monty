@@ -78,12 +78,10 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 
 	while (isspace(*token))
 		token++;
-	printf("%s\n", token);
 	if (strncmp(token, "push ", 4) == 0)
 	{
 		while (isalpha(*token))
 			token++;
-		printf("%s\n", token);
 		token++;
 		if (isdigit(*token) == 0)
 		{
