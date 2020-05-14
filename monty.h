@@ -27,9 +27,9 @@ extern int num;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -41,8 +41,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /** end Structures **/
 /** Functions **/
@@ -52,12 +52,16 @@ void clean_sp(stack_t **my_stack, int line, char *token);
 void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num);
 int _len(char *command);
 void ll_free(stack_t **my_stack);
-
-void push(stack_t **stack, unsigned int line_number); /** Pushing to stack **/
-void pall(stack_t **stack, unsigned int line_number); /** print the stack full **/
-void pint(stack_t **stack, unsigned int line_number); /** get the top address of the stack **/
-void pop(stack_t **stack, unsigned int line_number); /** pop top node in stack **/
-int n_nodes(stack_t *head); /** get number of nodes in list **/
+/** Pushing to stack **/
+void push(stack_t **stack, unsigned int line_number);
+/** print the stack full **/
+void pall(stack_t **stack, unsigned int line_number);
+/** get the top address stack **/
+void pint(stack_t **stack, unsigned int line_number);
+/** pop top node in stack **/
+void pop(stack_t **stack, unsigned int line_number);
+/** get number of nodes in list **/
+int n_nodes(stack_t *head);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 /** end Functions **/

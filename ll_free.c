@@ -1,5 +1,8 @@
 #include "monty.h"
-
+/**
+ * ll_free - free linked list
+ * @my_stack: head to linked list
+ */
 void ll_free(stack_t **my_stack)
 {
 	stack_t *aux;
