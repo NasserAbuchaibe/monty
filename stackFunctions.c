@@ -73,7 +73,7 @@ void pint(stack_t **stack, unsigned int line_number)
  * @stack: head of stack
  * @line_number : number of line readed
  */
-void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_numbe)
+void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 {
 	int c = 0;
 
