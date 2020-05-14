@@ -32,7 +32,6 @@ void swap(stack_t **stack, unsigned int line_number)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
-	int popped;
 
 	if (n_nodes(*stack) == 0)
 	{
@@ -44,7 +43,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	while (aux->next != NULL)
 		aux = aux->next;
 
-	popped = aux->n;
 	aux->prev->next = NULL;
 	free(aux);
 
@@ -75,7 +73,7 @@ void pint(stack_t **stack, unsigned int line_number)
  * @stack: head of stack
  * @line_number : number of line readed
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_numbe)
 {
 	int c = 0;
 
@@ -95,7 +93,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * @stack: head of stack
  * @line_number : number of line readed
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));
 	stack_t *aux = *stack;
