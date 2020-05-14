@@ -133,6 +133,8 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"nop", nop},
 		{"mul", mul},
 		{"div", _div},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	while (cmd[x].opcode != NULL)
