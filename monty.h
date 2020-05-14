@@ -46,7 +46,7 @@ typedef struct instruction_s
 } instruction_t;
 /** end Structures **/
 /** Functions **/
-void stack_up(char *file_m);
+void stack_up(char *file_m, stack_t **my_stack);
 char *r_file(char *file);
 void clean_sp(stack_t **my_stack, int line, char *token);
 void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num);

@@ -5,15 +5,13 @@ int num;
  * @file_m: File with instructions
  * Return: void
  */
-void stack_up(char *file_m)
+void stack_up(char *file_m, stack_t **my_stack)
 {
-	stack_t *my_stack;
 	char *token, *str;
 	int line;
 
 	str = r_file(file_m);
 
-	my_stack = malloc(sizeof(char *));
 	if (my_stack == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -26,11 +24,10 @@ void stack_up(char *file_m)
 
 	for (line = 1; token != NULL; ++line)
 	{
-		clean_sp(&my_stack, line, token);
+		clean_sp(my_stack, line, token);
 		token = strtok(NULL, "\n");
 	}
-	ll_free(&my_stack);
-	free(my_stack);
+	ll_free(my_stack);
 }
 
 /**
@@ -143,8 +140,10 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 	while (cmd[x].opcode != NULL)
 	{
 		if (strcmp(tok, cmd[x].opcode) == 0)
+		{
 			free(tok);
 			return (cmd[x].f);
+		}
 		x++;
 	}
 	free(tok);
