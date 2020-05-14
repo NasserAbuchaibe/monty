@@ -135,6 +135,7 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"div", _div},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 	tok = cleans(command);
