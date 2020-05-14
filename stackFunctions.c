@@ -12,7 +12,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (n_nodes(aux) < 2)
 	{
-		fprintf(stderr, "<%d>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -35,7 +35,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (n_nodes(*stack) == 0)
 	{
-		fprintf(stderr, "<%d>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
@@ -58,7 +58,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (n_nodes(top) == 0)
 	{	/** Aca se debe imprimir el numero de linea que no puedo ejecutar pop **/
-		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	while (top->next != NULL)
