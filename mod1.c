@@ -13,19 +13,16 @@ void _mod(stack_t **stack, unsigned int line_num)
 	{
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_num);
 		ll_free(stack);
-		free(stack);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_num);
 		ll_free(stack);
-		free(stack);
 		exit(EXIT_FAILURE);
 	}
-
-	mod = ((*stack)->next)->n % (*stack)->n;
-
-	(*stack)->next->n = mod;
+	mod = (*stack)->n;
+		pop(stack, line_num);
+		(*stack)->n %= mod;
 }
 
