@@ -16,7 +16,7 @@ void stack_up(char *file_m)
 	my_stack = malloc(sizeof(char *));
 	if (my_stack == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 

@@ -34,7 +34,7 @@ void sub(stack_t **head, unsigned int line_num)
 {
 	stack_t *aux = *head;
 
-	if (n_nodes(aux) < 2)
+	if (n_nodes(aux) < 2 || head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_num);
 		ll_free(head);
