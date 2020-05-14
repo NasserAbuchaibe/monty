@@ -45,5 +45,6 @@ void pop(stack_t **head, int line_n); /** pop top node in stack **/
 int n_nodes(stack_t *head); /** get number of nodes in list **/
 void swap(stack_t **head, int line_num);
 void sub(stack_t **head, int line_num);
+void _div(stack_t **head, int line_number);
 /** end Functions **/
 #endif

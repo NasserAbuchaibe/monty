@@ -7,6 +7,30 @@
 
 #include "monty.h"
 
+void _div(stack_t **head, int line_number)
+{
+	stack_t *aux = *head;
+	float res;
+
+	if (n_nodes(aux) < 2)
+	{
+		fprintf(stderr,"<%d>: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	while (aux->next != NULL)
+		aux = aux->next;
+
+	res = aux->n /= aux->prev->n;
+	res = (int)res;
+	aux->prev->n = res;
+	aux->prev->next = NULL;
+
+	free(aux);
+}
+
+
+
 void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
