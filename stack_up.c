@@ -122,6 +122,8 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 {
 	int x = 0;
+	char *tok;
+
 	instruction_t cmd[] = {
 		{"push", push},
 		{"pall", pall},
@@ -137,12 +139,15 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"pstr", pstr},
 		{NULL, NULL}
 	};
+	tok = cleans(command);
 	while (cmd[x].opcode != NULL)
 	{
-		if (strcmp(command, cmd[x].opcode) == 0)
+		if (strcmp(tok, cmd[x].opcode) == 0)
+			free(tok);
 			return (cmd[x].f);
 		x++;
 	}
+	free(tok);
 	return (NULL);
 }
 /**
