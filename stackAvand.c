@@ -17,7 +17,7 @@ void pstr(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 	for (; c > 0; c--)
 	{
 		code = (*stack)->n;
-		if (code > 126 || code == 0)
+		if (code > 126 || code == 0 || code < 0)
 			break;
 		putchar((char)code);
 		*stack = (*stack)->prev;
