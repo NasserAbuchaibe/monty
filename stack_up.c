@@ -21,6 +21,8 @@ void stack_up(char *file_m)
 	}
 
 	token = strtok(str, "\n");
+	if (token == NULL)
+		return;
 
 	for (line = 1; token != NULL; ++line)
 	{
@@ -38,7 +40,7 @@ void stack_up(char *file_m)
  */
 char *r_file(char *file)
 {
-	char buff[MAX_BUFF + 1], *aux_buff;
+	char buff[MAX_BUFF + 1], *aux_buff = NULL;
 	FILE *to_file;
 	size_t size;
 
