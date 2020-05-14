@@ -1,6 +1,10 @@
 #include "monty.h"
 
-
+/**
+ * swap - swap the value of two stacks
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
@@ -20,21 +24,24 @@ void swap(stack_t **stack, unsigned int line_number)
 	aux->n = aux->prev->n;
 	aux->prev->n = tmp;
 }
-
-
+/**
+ * pop - pop top element
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
 	int popped;
 
 	if (n_nodes(*stack) == 0)
-	{	/** Aca se debe imprimir el numero de linea que no puedo ejecutar pop **/
-		fprintf(stderr,"<%d>: can't pop an empty stack\n", line_number);
+	{
+		fprintf(stderr, "<%d>: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
 
-	while(aux->next != NULL)
+	while (aux->next != NULL)
 		aux = aux->next;
 
 	popped = aux->n;
@@ -42,14 +49,18 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(aux);
 
 }
-
+/**
+ * pint - print top element
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top = *stack;
 
 	if (n_nodes(top) == 0)
 	{	/** Aca se debe imprimir el numero de linea que no puedo ejecutar pop **/
-		fprintf(stderr,"L<%d>: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	while (top->next != NULL)
@@ -59,7 +70,11 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", top->n);
 }
 
-
+/**
+ * pall - print all stack
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	int c = 0;
@@ -75,8 +90,11 @@ void pall(stack_t **stack, unsigned int line_number)
 		*stack = (*stack)->prev;
 	}
 }
-
-
+/**
+ * push - push element to top
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));

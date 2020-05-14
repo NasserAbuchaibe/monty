@@ -1,19 +1,16 @@
-/*
- * Aux_Functions.c
- *
- *  Created on: 12/05/2020
- *      Author: deepzirox
- */
-
 #include "monty.h"
-
+/**
+ * add - sum top and previous element
+ * @stack: head of stack
+ * @line_number : number of line readed
+ */
 void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
 
 	if (n_nodes(aux) < 2)
 	{
-		fprintf(stderr,"<%d>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "<%d>: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +22,11 @@ void add(stack_t **stack, unsigned int line_number)
 
 	free(aux);
 }
-
+/**
+ * n_nodes - get number of nodes in stack
+ * @head: head of stack
+ * Return: count of nodes
+ */
 int n_nodes(stack_t *head)
 {
 	int nodes = 0;
