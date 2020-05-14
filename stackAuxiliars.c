@@ -54,10 +54,9 @@ void sub(stack_t **head, unsigned int line_num)
  * @head: head of stack
  * @line_num: number of line readed
  */
-void nop(__attribute__ ((unused))stack_t **head,
-		__attribute__ ((unused)) unsigned int line_num)
+void nop(stack_t **head, __attribute__ ((unused)) unsigned int line_num)
 {
-	;
+	ll_free(head);;
 }
 
 /**
