@@ -95,8 +95,15 @@ void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
  */
 void push(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 {
-	stack_t *new_stack = malloc(sizeof(stack_t));
+	stack_t *new_stack;
 	stack_t *aux = *stack;
+
+	new_stack = malloc(sizeof(stack_t));
+	if (new_stack == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
 	if (*stack == NULL)
 	{
