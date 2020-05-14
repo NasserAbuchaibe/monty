@@ -84,7 +84,8 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	{
 		while (isalpha(*token))
 			token++;
-		token++;
+		while (isspace(*token))
+			token++;
 		if (isdigit(*token) == 0)
 		{
 			fprintf(stderr,  "L%u: usage: push integer\n", line);
