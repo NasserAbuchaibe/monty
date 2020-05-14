@@ -98,7 +98,6 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 			num = -1 * atoi(token);
 		token = "push";
 	}
-
 	func = search_func(token);
 	if (func != NULL)
 	{
