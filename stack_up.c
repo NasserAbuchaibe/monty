@@ -107,7 +107,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	{
 		p_error = strndup(token, 4);
 		fprintf(stderr, "L%u: unknown instruction %s\n", line, p_error);
-		//ll_free(my_stack);
+		/* ll_free(my_stack); */
 		free(*my_stack);
 		free(p_error);
 		exit(EXIT_FAILURE);
