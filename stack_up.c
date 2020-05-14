@@ -87,8 +87,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		if (isdigit(*token) == 0)
 		{
 			fprintf(stderr,  "L%u: usage: push integer\n", line);
-			ll_free(my_stack);
-			free(my_stack);
+			free(*my_stack);
 			exit(EXIT_FAILURE);
 		}
 		if (token[0] != '-')
