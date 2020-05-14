@@ -124,5 +124,4 @@ void push(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 	new_stack->next = NULL;
 	new_stack->prev = aux;
 	aux->next = new_stack;
-
 }

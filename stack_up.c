@@ -100,14 +100,11 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 	}
 	func = search_func(token);
 	if (func != NULL)
-	{
 		func(my_stack, line);
-	}
 	else
 	{
 		p_error = strndup(token, 4);
 		fprintf(stderr, "L%u: unknown instruction %s\n", line, p_error);
-		/* ll_free(my_stack); */
 		free(*my_stack);
 		free(p_error);
 		exit(EXIT_FAILURE);
@@ -130,6 +127,8 @@ void (*search_func(char *command))(stack_t **my_stack, unsigned int l_num)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"sub", sub},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	while (cmd[x].opcode != NULL)
