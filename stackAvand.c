@@ -4,7 +4,7 @@
  * @stack: head of linked list
  * @line_number: number of line in file
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 {
 	int c = 0;
 	int code = 0;
