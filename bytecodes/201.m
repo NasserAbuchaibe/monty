@@ -1,2 +1,3 @@
-push 200
-pchar
+push 20
+push
+pall
