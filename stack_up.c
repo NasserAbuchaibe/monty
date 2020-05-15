@@ -109,7 +109,7 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 }
 
 /**
- * search_func- find the correct cfind the correct command according to the
+ * search_func - find the correct cfind the correct command according to the
  * instructin
  * @command: command identifier to search the struct
  * Return: function corresponding to that opcode
