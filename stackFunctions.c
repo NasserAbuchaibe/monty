@@ -17,13 +17,9 @@ void swap(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	while (aux->next != NULL)
-	{
-		aux = aux->next;
-	}
 	tmp = aux->n;
-	aux->n = aux->prev->n;
-	aux->prev->n = tmp;
+	aux->n = aux->next->n;
+	aux->next->n = tmp;
 }
 /**
  * pop - pop top element
