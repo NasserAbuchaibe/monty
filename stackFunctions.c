@@ -10,16 +10,20 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *aux = *stack;
 	int tmp;
 
-	if (n_nodes(aux) < 2 || (*stack) == NULL || (*stack)->next == NULL)
+	if (n_nodes(aux) < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		ll_free(stack);
 		exit(EXIT_FAILURE);
 	}
 
+	while (aux->next != NULL)
+	{
+		aux = aux->next;
+	}
 	tmp = aux->n;
-	aux->n = aux->next->n;
-	aux->next->n = tmp;
+	aux->n = aux->prev->n;
+	aux->prev->n = tmp;
 }
 /**
  * pop - pop top element
