@@ -1,2 +1,2 @@
-push 1
-pstr
+push 200
+pchar

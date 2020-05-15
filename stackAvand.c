@@ -17,7 +17,7 @@ void pstr(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 	for (; c > 0; c--)
 	{
 		code = (*stack)->n;
-		if (code > 126 || code == 0 || code < 0)
+		if (code > 126 || code <= 0)
 			break;
 		putchar((char)code);
 		*stack = (*stack)->prev;
@@ -44,6 +44,11 @@ void pchar(stack_t **stack, unsigned int line_number)
 		aux = aux->next;
 
 	code = (char)aux->n;
+	if (aux->n > 126 || aux->n <= 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	putchar(code);
 	putchar('\n');
 }
