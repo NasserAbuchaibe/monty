@@ -80,6 +80,13 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 		token++;
 	if (token[0] == '#')
 		return;
+
+	if (strcmp(token, "push") == 0)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line);
+		free(*my_stack);
+		exit(EXIT_FAILURE);
+	}
 	if (strncmp(token, "push ", 4) == 0)
 	{
 		while (isalpha(*token))
