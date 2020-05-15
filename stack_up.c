@@ -93,13 +93,6 @@ void clean_sp(stack_t **my_stack, int line, char *token)
 			token++;
 		while (isspace(*token))
 			token++;
-
-		if (isalpha(*token))
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line);
-			free(*my_stack);
-			exit(EXIT_FAILURE);
-		}
 		num = atoi(token);
 		if (isdigit(num) != 0)
 		{
